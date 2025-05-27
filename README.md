@@ -74,11 +74,11 @@ fn read_operator(prompt: &str) -> char {
 ```
 ##APREDIZADOS:
 
-Entrada e leitura do terminal com std::io
+• Entrada e leitura do terminal com std::io
 
-Conversão e validação de String para f64
+• Conversão e validação de String para f64
 
-Uso de match para lógica de decisão
+• Uso de match para lógica de decisão
 
-Estruturação do código com funções
+• Estruturação do código com funções
 

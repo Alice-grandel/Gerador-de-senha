@@ -5,7 +5,6 @@ Uma calculadora simples de terminal feita em Rust. Permite somar, subtrair, mult
 ## Como executar
 
 ```bash
-cargo run
 use std::io;
 
 fn main() {

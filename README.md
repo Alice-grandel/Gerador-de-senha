@@ -72,7 +72,7 @@ fn read_operator(prompt: &str) -> char {
     } 
  }
 ```
-APREDIZADOS:
+#APREDIZADOS:
 
 • Entrada e leitura do terminal com std::io
 

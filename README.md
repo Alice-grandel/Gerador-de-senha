@@ -4,6 +4,8 @@ Uma calculadora simples de terminal feita em Rust. Permite somar, subtrair, mult
 
 ## Como executar
 
+CODIGO PRINCIPAL
+
 ```bash
 use std::io;
 

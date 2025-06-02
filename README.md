@@ -1,84 +1,69 @@
-# Calculadora em Rust
+# Calculadora em C++
 
-Uma calculadora simples de terminal feita em Rust. Permite somar, subtrair, multiplicar e dividir dois números.
+Uma calculadora simples de terminal feita em C++. Permite somar, subtrair, multiplicar e dividir dois números.
 
 ## Como executar
 
 CODIGO PRINCIPAL:
 
 ```bash
-use std::io;
+#include  <iostream>
 
-fn main() {
-
-    let num1 = read_number("Digite o primeiro numero:");
-
-    let operator = read_operator("Digite o operador (+, -, *, /):");
-
-    let num2 = read_number("Digite o segundo numero:");
-
-
-    let result = match operator {
-        '+' => num1 + num2,
-        '-' => num1 - num2,
-        '*' => num1 * num2,
-        '/' => {
-            if num2 == 0.0 {
-                 println!("Erro: divisão por zero!");
-                return;
-            } 
-                num1 / num2
-            
-        }
-        _ => {
-        println!("Operador inválido.");
-        return;
-       }
-};
-    println!("O resultado é: {} {} {} = {} ", num1, operator, num2, result);
-
-}
-
-
-
-fn read_number(prompt: &str) -> f64 {
-    loop {
-        println!("{}",prompt);
-            let mut input = String::new();
-                io::stdin().read_line(&mut input).expect("Error ao ler a linha");
-
-        match input.trim().parse::<f64>() {
-            Ok(num) => return num,
-                Err(_) =>  println!("Invalid input, please enter a number"),
+using namespace std;
         
-        }
-    } 
- }
+int main() {
+
+    double n1, n2, resultado;
+    char operador, ops;
+
+    do {
+    cout << "\nDigite o primeiro numero:\n";
+    cin >> n1;
+
+    cout << "\nDigite o operador (+,-,*,/)\n";
+    cin >> operador;
+
+    cout << "\nDigite o segundo numero:\n";
+    cin >> n2;
 
 
-fn read_operator(prompt: &str) -> char {
-    loop {
-        println!("{}",prompt);
-            let mut input = String::new();
-                io::stdin().read_line(&mut input).expect("Error ao ler a linha");
+    switch (operador) {
+        case '+':
+            resultado = n1 + n2;
+                cout << " O Resultado de " << n1 << " + " <<  n2  << " = " << resultado << endl;
+            break;
 
-       let operator = input.trim().chars().next();
-        match operator {
-            Some ('+') | Some ('-') | Some ('*') | Some ('/') => return operator.unwrap(),
-            _ => {
-                println!("Invalid input, please enter a valid operator");
-            }
-        }
-    } 
- }
+            case '-':
+            resultado = n1 - n2;
+                cout << " O Resultado de " << n1 << " - " <<  n2  << " = " << resultado << endl;
+            break; 
+
+            case '*':
+            resultado = n1 * n2;
+                cout << " O Resultado de " << n1 << " * " <<  n2  << " = " << resultado << endl;
+            break;
+
+            case '/':
+                if (n2 != 0) {
+                    resultado = n1 / n2;
+                    cout << "O resultado de " << n1 << " / " << n2 << " = " << resultado << endl;
+                } else {
+                cout << "\nDivisão por zero não é permitida.\n" << endl;
+                }
+            break;
+            default:
+            cout << "\nOperador inválido. Tente novamente.\n" << endl;
+
+    }
+    cout << "\nDeseja realizar outra operação? (s/n)\n";
+    cin >> ops;
+
+    } while (ops == 's' || ops == 'S');
+
+    cout << "\nObrigado por usar a calculadora. Operação encerrada!\n" << endl;
+
+
+    return 0;
+}
 ```
-#APREDIZADOS:
-
-• Entrada e leitura do terminal com std::io
-
-• Conversão e validação de String para f64
-
-• Uso de match para lógica de decisão
-
-• Estruturação do código com funções
 

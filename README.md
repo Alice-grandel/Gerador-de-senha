@@ -236,3 +236,50 @@ fn read_number(prompt: &str) -> f64 {
 }
 
 ```
+
+# EXERCICIO RUST: 3
+
+TABUADA: Desenvolva um programa que faça a tabuada de um número qualquer inteiro que será digitado pelo usuário, mas a tabuada não deve necessariamente iniciar em 1 e terminar em 10, o valor inicial e final devem ser informados também pelo usuário, conforme exemplo abaixo:
+```
+Montar a tabuada de: 5
+Começar por: 4
+Terminar em: 7
+
+Vou montar a tabuada de 5 começando em 4 e terminando em 7:
+5 X 4 = 20
+5 X 5 = 25
+5 X 6 = 30
+5 X 7 = 35
+```
+CODIGO:
+```
+use std::io;
+
+fn main() { 
+
+    let numero = read_number("Digite um numero");
+    let comecar = read_number("Começar por: ");
+    let terminar = read_number("terminar por: ");
+
+
+    for i in comecar..=terminar {
+        let result = numero * i;
+        println!("{} X {} = {}", numero, i, result);
+    }
+
+
+}
+
+fn read_number(prompt: &str) -> i32 {
+    loop {
+        println!("{}",prompt);
+         let mut input = String::new();
+          io::stdin().read_line(&mut input).expect("Erro");
+
+          match input.trim().parse::<i32>() {
+            Ok(num) => return num,
+             Err(_) => println!("Valor invalido"),
+           } 
+    }
+}
+```

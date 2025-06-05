@@ -41,7 +41,9 @@ Funcionalidades:
     Caso o usuário escolha uma operação inválida, exibir uma mensagem de erro.
 
     Perguntar ao usuário se deseja realizar outra operação, repetindo o processo enquanto desejar.
-```bash
+
+ # Codigo principal:    
+```
 use std::io;
 
 fn main() {
@@ -154,7 +156,7 @@ O programa deverá solicitar ao usuário:
     FGTS (11%)                    : R$  121,00
     Salário Líquido               : R$  935,00
 
-    
+# Codigo principal:     
 ```
 use std::io;
 

@@ -119,8 +119,20 @@ fn read_operator(prompt: &str) -> char {
 
 
     }
-
 ```
+
+## 🚀 Como estou estudando
+
+Estou estudando Rust diariamente, resolvendo exercícios passo a passo e aplicando boas práticas de código mesmo em problemas simples. A ideia é evoluir gradualmente e usar este repositório para acompanhar meu progresso.
+
+---
+
+## 📌 Observações
+
+- Todos os exercícios foram feitos por mim, com base em listas de lógica e desafios disponíveis na internet ou criados por mim mesma.
+- O foco é o **aprendizado**, então nem sempre o código será o mais otimizado — o importante é que funcione e eu entenda o que está acontecendo.
+
+
 # EXERCICIO RUST: 2
 
 FOLHA DE PAGAMENTO:
@@ -224,37 +236,3 @@ fn read_number(prompt: &str) -> f64 {
 }
 
 ```
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-## 🚀 Como estou estudando
-
-Estou estudando Rust diariamente, resolvendo exercícios passo a passo e aplicando boas práticas de código mesmo em problemas simples. A ideia é evoluir gradualmente e usar este repositório para acompanhar meu progresso.
-
----
-
-## 📌 Observações
-
-- Todos os exercícios foram feitos por mim, com base em listas de lógica e desafios disponíveis na internet ou criados por mim mesma.
-- O foco é o **aprendizado**, então nem sempre o código será o mais otimizado — o importante é que funcione e eu entenda o que está acontecendo.
-
----
-
-## 💬 Contato
-
-Se quiser trocar ideia sobre Rust, lógica de programação ou sugerir melhorias, fique à vontade para abrir uma issue ou me chamar!
-
-}
-```
-

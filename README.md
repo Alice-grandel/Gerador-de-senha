@@ -1,9 +1,28 @@
-# Calculadora em Rust
+# 🧠 Exercícios de Lógica de Programação em Rust
 
-Uma calculadora de terminal feita em Rust. Permite somar, subtrair, multiplicar e dividir dois números.
+Este repositório contém exercícios de lógica de programação que estou resolvendo para treinar minha base em desenvolvimento e fortalecer meu raciocínio lógico, usando a linguagem **Rust**.
 
-CODIGO PRINCIPAL:
+---
 
+## ✍️ Objetivo
+
+Praticar lógica de programação e registrar minha evolução nos estudos com Rust. Aqui você encontrará exercícios envolvendo:
+
+- Variáveis e tipos de dados em Rust
+- Condicionais (`if`, `else`)
+- Laços de repetição (`for`, `loop`)
+- Funções
+- Vetores (`Vec<T>`)
+- Desafios diversos de lógica
+
+---
+
+## 📂 Estrutura do repositório
+
+
+EXERCICIOS.RURT: 
+
+CALCULADORA:
 ```bash
 use std::io;
 
@@ -80,6 +99,29 @@ fn read_operator(prompt: &str) -> char {
 
 
     }
+
+```
+> Os arquivos são nomeados de forma descritiva, com foco na clareza e na didática.
+
+---
+
+## 🚀 Como estou estudando
+
+Estou estudando Rust diariamente, resolvendo exercícios passo a passo e aplicando boas práticas de código mesmo em problemas simples. A ideia é evoluir gradualmente e usar este repositório para acompanhar meu progresso.
+
+---
+
+## 📌 Observações
+
+- Todos os exercícios foram feitos por mim, com base em listas de lógica e desafios disponíveis na internet ou criados por mim mesma.
+- O foco é o **aprendizado**, então nem sempre o código será o mais otimizado — o importante é que funcione e eu entenda o que está acontecendo.
+
+---
+
+## 💬 Contato
+
+Se quiser trocar ideia sobre Rust, lógica de programação ou sugerir melhorias, fique à vontade para abrir uma issue ou me chamar!
+
 }
 ```
 

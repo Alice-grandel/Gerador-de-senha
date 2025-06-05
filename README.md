@@ -17,10 +17,7 @@ Praticar lógica de programação e registrar minha evolução nos estudos com R
 
 ---
 
-## 📂 Estrutura do repositório
-
-
-EXERCICIOS.RURT: 
+# EXERCICIOS RUST: 
 
 CALCULADORA:
 ```bash

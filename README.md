@@ -19,7 +19,28 @@ Praticar lógica de programação e registrar minha evolução nos estudos com R
 
 # EXERCICIOS RUST: 1
 
-CALCULADORA:
+CALCULADORA SIMPLES:
+
+Crie um programa que funcione como uma calculadora básica, realizando operações matemáticas entre dois números fornecidos pelo usuário.
+Funcionalidades:
+
+    Solicitar ao usuário que digite dois números.
+
+    Solicitar qual operação matemática deseja realizar:
+
+        Soma (+)
+
+        Subtração (-)
+
+        Multiplicação (*)
+
+        Divisão (/)
+
+    Realizar a operação escolhida e mostrar o resultado.
+
+    Caso o usuário escolha uma operação inválida, exibir uma mensagem de erro.
+
+    Perguntar ao usuário se deseja realizar outra operação, repetindo o processo enquanto desejar.
 ```bash
 use std::io;
 

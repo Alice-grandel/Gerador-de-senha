@@ -42,7 +42,7 @@ Funcionalidades:
 
     Perguntar ao usuário se deseja realizar outra operação, repetindo o processo enquanto desejar.
 
- # Codigo principal:    
+ # Codigo:    
 ```
 use std::io;
 
@@ -156,7 +156,7 @@ O programa deverá solicitar ao usuário:
     FGTS (11%)                    : R$  121,00
     Salário Líquido               : R$  935,00
 
-# Codigo principal:     
+# Codigo:     
 ```
 use std::io;
 

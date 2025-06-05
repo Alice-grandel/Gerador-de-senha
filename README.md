@@ -173,11 +173,11 @@ fn main() {
     if salario_bruto <= 900.0 {
         percentual = 0.0; 
     }else if salario_bruto <= 1500.0 {
-        percentual = 5.0
+        percentual = 5.0;
     } else if salario_bruto <= 2500.0 {
-        percentual = 10.0
+        percentual = 10.0;
     } else {
-        percentual = 20.0
+        percentual = 20.0;
     }
 
     let ir = salario_bruto * (percentual / 100.0);

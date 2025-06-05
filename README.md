@@ -102,6 +102,38 @@ fn read_operator(prompt: &str) -> char {
 
 FOLHA DE PAGAMENTO:
 
+Faça um programa para cálculo de uma folha de pagamento, considerando os seguintes descontos e regras:
+
+    Imposto de Renda (IR) descontado conforme tabela do salário bruto:
+
+        Até R$ 900,00 (inclusive): isento
+
+        Até R$ 1500,00 (inclusive): 5%
+
+        Até R$ 2500,00 (inclusive): 10%
+
+        Acima de R$ 2500,00: 20%
+
+    Desconto de 10% para o INSS.
+
+    FGTS corresponde a 11% do salário bruto, mas não é descontado do trabalhador — é um depósito feito pela empresa.
+
+    O salário líquido é o salário bruto menos os descontos (IR + INSS).
+
+O programa deverá solicitar ao usuário:
+
+    Valor da hora trabalhada.
+
+    Quantidade de horas trabalhadas no mês.
+
+    Exemplo de saída: 
+    Salário Bruto:                 : R$ 1100,00
+    IR (5%)                       : R$   55,00
+    INSS (10%)                    : R$  110,00
+    FGTS (11%)                    : R$  121,00
+    Salário Líquido               : R$  935,00
+
+    
 ```
 use std::io;
 

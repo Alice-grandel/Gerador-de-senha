@@ -17,7 +17,7 @@ Praticar lógica de programação e registrar minha evolução nos estudos com R
 
 ---
 
-# EXERCICIOS RUST: 
+# EXERCICIOS RUST: 1
 
 CALCULADORA:
 ```bash
@@ -98,9 +98,90 @@ fn read_operator(prompt: &str) -> char {
     }
 
 ```
-> Os arquivos são nomeados de forma descritiva, com foco na clareza e na didática.
+# EXERCICIO RUST: 2
 
----
+FOLHA DE PAGAMENTO:
+
+```
+use std::io;
+
+fn main() {
+
+
+    loop {
+        println!("[BEM-VINDO]");
+
+    let salario = read_number("Digite o seu salario");
+     let hora_trabalhada = read_number("Quantas horas vc trabalha por mes?");
+
+     let percentual: f64;
+      let salario_bruto = salario * hora_trabalhada;
+
+    if salario_bruto <= 900.0 {
+        percentual = 0.0; 
+    }else if salario_bruto <= 1500.0 {
+        percentual = 5.0
+    } else if salario_bruto <= 2500.0 {
+        percentual = 10.0
+    } else {
+        percentual = 20.0
+    }
+
+    let ir = salario_bruto * (percentual / 100.0);
+     let inss = salario_bruto * 0.10;
+    let fgts = salario_bruto * 0.11;
+     let salario_liquido = salario_bruto - ir - inss;
+
+    println!("[FOLHA-DE-PAGAMENTO]");
+    println!("Salario bruto:  R${:.2}", salario_bruto);
+    println!("IR:(5%)  R${:.2}", ir);
+    println!("INSS:  R${:.2}", inss );
+    println!("FGTS:  R${:.2}", fgts);
+    println!("----------------------------------");
+    println!("Salario liquido:  R${:.2}", salario_liquido);
+
+
+    println!("Voce gostaria de refazer [S/N]?");
+     let mut respostas = String::new();
+      io::stdin().read_line(&mut respostas).expect("Erro");
+
+      if respostas.trim().eq_ignore_ascii_case("n") {
+        println!("Programa encerrado");
+         break;
+      }
+
+
+  }
+
+}
+
+fn read_number(prompt: &str) -> f64 {
+    loop{
+        println!("{}",prompt);
+         let mut input = String::new();
+          io::stdin().read_line(&mut input).expect("Erro");
+
+        match input.trim().parse::<f64>() {
+            Ok(num) => return num,
+             Err(_) => println!("Valor invalido"),
+        }
+    }
+}
+
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 ## 🚀 Como estou estudando
 

@@ -283,3 +283,113 @@ fn read_number(prompt: &str) -> i32 {
     }
 }
 ```
+# EXERCICIO RUST: 4
+
+CAIXA ELETRONICO: Faça um Programa para um caixa eletrônico.
+
+O programa deverá perguntar ao usuário a valor do saque e depois informar quantas notas de cada valor serão fornecidas.
+
+As notas disponíveis serão as de 1, 5, 10, 50 e 100 reais. O valor mínimo é de 10 reais e o máximo de 600 reais.
+
+O programa não deve se preocupar com a quantidade de notas existentes na máquina.
+
+Exemplo 1: Para sacar a quantia de 256 reais, o programa fornece duas notas de 100, uma nota de 50, uma nota de 5 e uma nota de 1;
+
+Exemplo 2: Para sacar a quantia de 399 reais, o programa fornece três notas de 100, uma nota de 50, quatro notas de 10, uma nota de 5 e quatro notas de 1.
+
+CODIGO:
+
+```
+use std::io;
+
+fn main() {
+
+
+    loop {
+
+        // apresentação do programa
+        println!("\nCAIXA-ELETRONICO]\n");
+        println!("\nnotas disponiveis: 100 reais , 50 reais, 20 reais , 10 reais, 5 reais, 1 real\n");
+
+        // input que pede ao usuario pra escrever o valor que deseja sacar
+        let saque = read_number("\nQuanto você deseja sacar? valor de R$10.0 reais a R$600.0 reais disponiveis\n");
+
+        // operção que diz quantas notas vão ser fornecidas
+        if saque >= 10 && saque <= 600 {
+          println!("Saque autorizado de {} reais ", saque);
+
+          let mut valor_restante = saque;
+          
+            let nota100 = valor_restante / 100;
+             valor_restante %= 100;
+            
+            let nota50 = valor_restante / 50;
+             valor_restante %= 50;
+            
+            let nota20 = valor_restante / 20;
+             valor_restante %= 20;
+
+            let nota10 = valor_restante / 10; 
+             valor_restante %= 10;
+            
+            let nota5 = valor_restante / 5;
+             valor_restante %= 5;
+
+            let nota1 = valor_restante / 1;
+             valor_restante %= 1; 
+
+
+             println!("[NOTAS-FORNECIDAS!]");
+             read_nota(nota100, 100);
+             read_nota(nota50, 50);
+             read_nota(nota20, 20);
+             read_nota(nota10, 10);
+             read_nota(nota5, 5);
+             read_nota(nota1, 1);
+
+              if valor_restante > 0 {
+                println!("n foi possivel fornecer notas para R${} de reais", valor_restante);
+            }
+        } else {
+
+            println!("Valor invalido tente algo entre 10 a 600 reais");
+        }
+
+
+        println!("---------------------------------------------");
+
+            // loop pra repetir o programa ou encerrar
+            println!("Deseja voltar e recomeçar a operação [S/N]?");
+            let mut respostas = String::new();
+             io::stdin().read_line(&mut respostas).expect("Erro");
+
+            if respostas.trim().eq_ignore_ascii_case("n") {
+                println!("operação encerrada");
+                break;
+            }
+        }
+
+}
+
+
+// função das notas
+fn read_nota(quantidade: i32, valor: i32) {
+    if quantidade > 0 {
+        println!("{} notas fornecidas de {} reais", quantidade, valor);
+    }
+}
+
+// função do input
+fn read_number(prompt: &str) -> i32 {
+    loop {
+        println!("{}", prompt);
+         let mut input = String::new();
+          io::stdin().read_line(&mut input).expect("Erro");
+
+          match input.trim().parse::<i32>() {
+            Ok(num) => return num,
+            Err(_) => println!("Valor invalido"),
+          }
+    }
+}
+```

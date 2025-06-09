@@ -393,3 +393,69 @@ fn read_number(prompt: &str) -> i32 {
     }
 }
 ```
+
+# EXERCICIO RUST: 5 
+
+CAIXA REGISTRADORA: Crie um programa em Rust que simule o funcionamento de um caixa registradora. O sistema deve permitir o registro de múltiplos produtos em uma única compra, calcular o valor total, receber o pagamento do cliente, verificar se o valor é suficiente e calcular o troco. Ao final da operação, o programa deve perguntar se o caixa deve ser reaberto para uma nova compra. 
+
+
+
+```
+use std::io;
+
+fn main() {
+
+    loop {
+
+        println!("[CAIXA-REGISTRADORA!]");
+
+        let mut total: f64 = 0.0;
+        let mut produto_num = 1;
+    loop {
+        let preco = read_number(&format!("produto {}: ", produto_num));
+
+        if preco == 0.0 {
+            break;
+        } 
+            total += preco;
+            produto_num += 1;
+    }
+
+         println!("Total:  R${} reais", total);
+
+         let dinheiro = read_number("Dinheiro: R$");
+
+         if dinheiro < total {
+            println!("Compra n pode ser realizada dinheiro insuficiente");
+         } else {
+             let troco = dinheiro - total;
+             println!("Troco do cliente:  R${} reais", troco);
+          }
+
+          
+
+        println!("--------------------------------------------");
+        println!("gostaria de recomeçar [S/N]?");
+         let mut respostas = String::new();
+          io::stdin().read_line(&mut respostas).expect("Erro");
+
+          if respostas.trim().eq_ignore_ascii_case("n") {
+            println!("caixa fechado");
+            break;
+        }
+    }
+}
+
+fn read_number(prompt: &str) -> f64 {
+    loop{
+        println!("{}", prompt);
+         let mut input = String::new();
+          io::stdin().read_line(&mut input).expect("Valor invalido");
+
+          match input.trim().parse::<f64>() {
+            Ok(num) => return num,
+            Err(_) => println!("Erro"),
+          }
+    }
+}
+```

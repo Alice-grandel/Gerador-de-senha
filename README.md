@@ -526,6 +526,7 @@ fn combustivel(prompt: &str) -> char {
     }
 }
 
+
 fn read_number(prompt: &str) -> f64 {
     loop {
         println!("{}", prompt);

@@ -469,42 +469,44 @@ Escreva um algoritmo que leia o número de litros vendidos, o tipo de combustív
 use std::io;
 
 fn main() {
-    loop {
+
+    loop{
 
         let a = 1.90;
         let g = 2.50;
 
-        let tipo_combustivel = combustivel("Qual tipo de combustivel voce deseja? [A/G]");
-        let litros_vendidos = read_number("Quantos litros foram vendidos?");
+        let tipo_combustivel = combustivel("Qual tipo de combustivel você deseja [A/G]");
+        let litro_vendido = read_number("quantos litros de combustivel foram vendidos?");
 
         let preco_final = match tipo_combustivel {
-           'A'| 'a' => {
-                if litros_vendidos <= 20.0 {
-                    a * litros_vendidos * 0.97
-                } else {
-                    a * litros_vendidos * 0.95
-                }
-            }
-           'G' | 'g' => { 
-                if litros_vendidos <= 20.0 {
-                   g * litros_vendidos * 0.96
-            } else {
-                   g * litros_vendidos * 0.94
-            }
-        }
-            _ => 0.0
+            'A' | 'a' => {
+                        if litro_vendido <= 20.0 {
+                            a * litro_vendido * 0.97
+                        } else {
+                            a * litro_vendido * 0.95
+                        }
+                   }
+            'G' | 'g' => {
+                        if litro_vendido <= 20.0 {
+                            g * litro_vendido * 0.96
+                        } else {
+                            g * litro_vendido * 0.94
+                        }
+                 }
+                 _ => 0.0
         };
-        
-        println!("PREÇO TOTAL:  R${:.2} REAIS", preco_final);
 
-        println!("\nGostaria de recomeçar [S/N]\n");
-         let mut resposta = String::new();
-          io::stdin().read_line(&mut resposta).expect("Erro");
+        println!("Preço total:  R${:.2} reais", preco_final);
 
-          if resposta.trim().eq_ignore_ascii_case("n") {
-            println!("ENCERRADO");
+        println!("\nGostaria de recomeçar [S/N]?\n");
+        let mut resposta = String::new();
+        io::stdin().read_line(&mut resposta).expect("Erro");
+
+        if resposta.trim().eq_ignore_ascii_case("n") {
+            println!("[PROGRAMA-FECHADO!]");
             break;
-          }
+        }
+
     }
 
 }
@@ -515,17 +517,15 @@ fn combustivel(prompt: &str) -> char {
          let mut input = String::new();
           io::stdin().read_line(&mut input).expect("Erro");
 
-          let combustivel = input.trim().chars().next();
+         let combustivel = input.trim().chars().next();
 
-          match combustivel {
-           Some('a') | Some('A') | Some('g') | Some('G') => return combustivel.unwrap().to_ascii_lowercase(),
-            _ => {
-                println!("operador invalido");
-            } 
-          }
+        match combustivel {
+            Some('A') | Some('a') | Some('g') | Some('G') => return combustivel.unwrap(),
+            _ => println!("operação invalida"),
+         }
+
     }
 }
-
 
 fn read_number(prompt: &str) -> f64 {
     loop {
@@ -533,10 +533,10 @@ fn read_number(prompt: &str) -> f64 {
          let mut input = String::new();
           io::stdin().read_line(&mut input).expect("Erro");
 
-          match input.trim().parse::<f64>() {
+        match input.trim().parse::<f64>() {
             Ok(num) => return num,
             Err(_) => println!("Valor invalido"),
-          }
+        }
     }
 }
 ```

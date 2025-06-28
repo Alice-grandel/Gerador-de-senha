@@ -47,78 +47,69 @@ Funcionalidades:
 use std::io;
 
 fn main() {
-
     loop {
 
-    println!("[BEM-VINDOS]");
-
-    let num1 = read_number("Digite o primeiro numero");
-        let operator = read_operator("Digite o operador (+,-,*,/)");
-    let num2 = read_number("Digite o segundo numero");
-
+      let num1 = read_number("\nDigite o primeiro numero: \n");
+        let operator = read_operator("\nDigite o operador (+,-,*,/)\n");
+      let num2 = read_number("\nDigite o segundo numero: \n");
 
     let result = match operator {
-        '+' => num1 + num2,
-        '-' => num1 - num2,
-        '*' => num1 * num2,
-        '/' => if num2 == 0.0 {
-            println!("Erro de divisao por zero");
-            return;
-        } else {
-            num1 / num2
-        }
+    '+' => num1 + num2,
+    '-' => num1 - num2,
+    '*' => num1 * num2,
+    '/' => if num2 == 0.0 {
+              println!("Divisão por zero invalida");
+              return;
+            } else {
+              num1 / num2
+            }
         _ => unreachable!()
-    }; 
+    };
 
-    println!("{} {} {} = {}", num1, operator, num2, result);
+      println!("{} {} {} = {}", num1, operator, num2, result);
 
+        println!("GOSTARIA DE REINICIAR A CALCULADORA?");
+           let mut resposta = String::new();
+            io::stdin().read_line(&mut resposta).expect("Erro");
 
-        println!("Gostaria de refazer [S/N]?");
-
-    let mut respostas = String::new();
-    io::stdin().read_line(&mut respostas).expect("Erro");
-
-    if respostas.trim().eq_ignore_ascii_case("n") {
-        println!("Programa encerrado!")
+        if resposta.trim().eq_ignore_ascii_case("n"){
+           println!("PROGRAMA ENCERRADO!");
+            break;
+          }
     }
-
-    }   
 
 }
 
-fn read_number(prompt: &str) -> f64 {
-    loop{
+fn read_number(prompt: &str) -> f64{
+  loop{
     println!("{}", prompt);
-    let mut input = String::new();
-    io::stdin().read_line(&mut input).expect("Erro");
+      let mut input = String::new();
+       io::stdin().read_line(&mut input).expect("Erro");
 
-    match input.trim().parse::<f64>() {
+       match input.trim().parse::<f64>() {
         Ok(num) => return num,
-        Err(_) => println!("Erro"),
+        Err(_) => println!("Valor invalido"),
+       }
+  }
+}
+
+fn read_operator(prompt: &str) -> char { 
+    
+    loop {
+      println!("{}", prompt);
+       let mut input = String::new();
+        io::stdin().read_line(&mut input).expect("Erro");
+
+        let operator = input.trim().chars().next();
+
+        match operator {
+          Some('+') | Some('-') | Some('*') | Some('/') => return operator.unwrap(),
+          _ => {
+              println!("Operador invalido");
+          }
         }
-
-     }
- } 
-
-
-fn read_operator(prompt: &str) -> char {
-    loop{
-        println!("{}", prompt);
-        let mut input = String::new();
-         io::stdin().read_line(&mut input).expect("Erro");
-
-        let operador = input.trim().chars().next();
-
-        match operador {
-            Some('+') | Some('-') | Some('*') | Some('/') => return operador.unwrap(),
-            _ => {     
-                println!("Operador invalido")
-            }
-
-        } 
-
-
     }
+}
 ```
 
 ## 🚀 Como estou estudando
